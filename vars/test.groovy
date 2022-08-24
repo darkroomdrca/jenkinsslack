@@ -32,7 +32,7 @@ def fail() {
 
 def success() {
    slackSend (teamDomain: "techverito", channel: "#gocd-build-notifications", tokenCredentialId: "32065985-0e36-4265-bdd8-8fc1e942f4f4",color: "good", 
-              message: "*${currentBuild.currentResult}* ${current_stage} (after${currentBuild.durationString.minus(' and counting')}) <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
+              message: "*${currentBuild.currentResult}* $current_stage (after${currentBuild.durationString.minus(' and counting')}) <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
 }
 
 
