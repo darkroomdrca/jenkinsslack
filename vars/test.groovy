@@ -24,19 +24,19 @@
 */
 def fail() {
    slackSend (teamDomain: "techverito", channel: "#gocd-build-notifications", tokenCredentialId: "32065985-0e36-4265-bdd8-8fc1e942f4f4",color: "#ff0000", 
-            message: "*FAILURE* <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
+            message: "*FAILURE* after ${currentBuild.durationString} <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId} ")
 }
 
 def success() {
    slackSend (teamDomain: "techverito", channel: "#gocd-build-notifications", tokenCredentialId: "32065985-0e36-4265-bdd8-8fc1e942f4f4",color: "good", 
-            message: "*${currentBuild.currentResult}* <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
+            message: "*${currentBuild.currentResult}* after ${currentBuild.durationString} <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
 }
 
 
 
 def start() {
    slackSend (teamDomain: "techverito", channel: "#gocd-build-notifications", tokenCredentialId: "32065985-0e36-4265-bdd8-8fc1e942f4f4",color: "#2596be", 
-            message: "*STARTED* <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
+            message: "*STARTED* after ${currentBuild.durationString} <${env.BUILD_URL}|${env.JOB_NAME}> #${env.BUILD_NUMBER} by ${currentBuild.getBuildCauses()[0].userId}")
 }
 
 /*
