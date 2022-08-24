@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 // vars/YourStepName.groovy
 
-def notifySlack(String buildStatus = currentBuild.result ) {
+def notifySlack(String buildStatus = $(currentBuild.currentresult) ) {
     // Build status of null means success.
     buildStatus = buildStatus ?: 'SUCCESS'
 
@@ -44,7 +44,7 @@ def update() {
 
 def notifyBuild(String buildStatus = 'STARTED') {
   // build status of null means successful
-  buildStatus = buildStatus ?: 'SUCCESS'
+  //buildStatus = buildStatus ?: 'SUCCESS'
 
   // Default values
   def colorName = 'RED'
